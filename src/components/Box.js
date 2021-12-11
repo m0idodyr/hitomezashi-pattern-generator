@@ -24,7 +24,7 @@ class Box extends Component{
     // Set click handler to the div and pass a callback
       onClick={this.handleChangeColor} 
       style={{backgroundColor:this.props.color, 
-                  width:'13em', height:'13em'}} 
+                  width:'1em', height:'1em'}} 
     />
   }
 }

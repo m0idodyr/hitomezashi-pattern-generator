@@ -1,10 +1,14 @@
 import './App.css'
 import BoxContainer from './components/BoxContainer'
+import Canvas from './components/Canvas';
 
 function App() {
+
+
+
   return (
     <div className="App">
-      <BoxContainer />
+      <Canvas x={5} />
     </div>
   );
 }
