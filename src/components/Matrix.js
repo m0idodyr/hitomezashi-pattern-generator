@@ -18,14 +18,9 @@ class Matrix extends Component {
     render () {
         return (
             <div>
-                <h1>React Dynamic Table</h1>
-                <table id='students'>
-             <tbody>
-                <tr><RenderTableHeader students={this.state.students[0]}/></tr>
-                <RenderTableData students={this.state.students}/>
+              
                 <TableGenerator row={10} col={10}/>
-             </tbody>
-          </table>
+
             </div>
         )
 
@@ -68,24 +63,16 @@ const TableGenerator = (props) => {
         }     
     }
 
-    let sorted = []
-
-    for(let i = 0; i < props.row; i++){
-        for(let j = 0; j < props.col; j++){
-            if (i === 0 && j === 1) {
-                sorted.push(`paska`)
-            } else {
-                sorted.push(`${i},${j}`)
-            }
-        }     
-    }
-
-    
-
     console.log(tbl)
     
-    let items = tbl.map((row) => {
-        <tr>{()=>{
+    let items = tbl.map((row) => { 
+    
+        let a =  <tr>{row}</tr>
+        return a
+
+    }
+        
+        /*<tr>{()=>{
 
         //console.log("row length " + row.length) ---> 10
         //console.log("a length " + a.length) ---> perpetually 0
@@ -100,14 +87,12 @@ const TableGenerator = (props) => {
                 }
 
             })
-            
-            console.log("foreachin palautus: ")
 
         }
 
 
-        }}</tr>
-    })
+        }}</tr>*/
+    )
 
     console.log(items)
     return (
