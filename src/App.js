@@ -1,14 +1,10 @@
 import './App.css'
-import BoxContainer from './components/BoxContainer'
-import Canvas from './components/Canvas';
+import Matrix from './components/Matrix';
 
 function App() {
-
-
-
   return (
     <div className="App">
-      <Canvas x={5} />
+      <Matrix />
     </div>
   );
 }
