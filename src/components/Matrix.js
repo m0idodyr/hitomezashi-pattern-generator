@@ -1,130 +1,79 @@
 import React, { Component } from 'react';
 
 class Matrix extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { //state is by default an object
-            students: [
-               { id: 1, name: 'Wasif', age: 21, email: 'wasif@email.com' },
-               { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
-               { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
-               { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
-            ]
-         }
-    }
 
+  constructor(props) {
+      super(props)
+      this.state = {
+          
+      }
+  }
 
-
-    render () {
-        return (
-            <div>
-              
-                <TableGenerator row={10} col={10}/>
-
-            </div>
-        )
-
-    }
+  render () {
+    return (
+      <div>
+        <TableGenerator row={10} col={10}/>
+      </div>
+    )
+  }
 
 }
-
-const RenderTableData = (props) => {
-    return props.students.map((student, index) => {
-       const { id, name, age, email } = student //destructuring
-       return (
-          <tr key={id}>
-             <td>{id}</td>
-             <td>{name}</td>
-             <td>{age}</td>
-             <td>{email}</td>
-          </tr>
-       )
-    })
-}
-
-const RenderTableHeader = (props) => {
-    let header = Object.keys(props.students)
-    return header.map((key, index) => {
-       return <th key={index}>{key.toUpperCase()}</th>
-    })
- }
-
-
-
 
 const TableGenerator = (props) => {
 
-    let tbl = []
-  
-    for(let i = 0; i < props.row; i++){
-        tbl.push([])
-        for(let j = 0; j < props.col; j++){
-            tbl[i].push(`${i},${j}`)
-        }     
-    }
+  //Create the 2D array with cell values
+  let tbl = []
+  for(let i = 0; i < props.row; i++){
+      tbl.push([])
+      for(let j = 0; j < props.col; j++){
+          tbl[i].push(`${i},${j}`)
+      }     
+  }
 
-    console.log(tbl)
+  //Create the table object and map through the rows, creating <tr> and <tr> elements with the cell values
+  let table = tbl.map((array) => { 
+    //"For each array in the tbl -array..."
+    let celledRow = array.map((cell) => {
+      //...iterate through each cell in an array, in the tbl -array, and return the cells as <td> elements with cell value
+      let b = <td>{cell}</td>
+      return b
+    })
     
-    let items = tbl.map((row) => { 
-    
-        let a =  <tr>{row}</tr>
-        return a
+    //Return a JSX array back to the 2-dimensional "table" -array, as a replacement of the original arrays with simple cell values.
+    let a =  <tr>{celledRow}</tr>
+    return a
 
-    }
-        
-        /*<tr>{()=>{
+  })
 
-        //console.log("row length " + row.length) ---> 10
-        //console.log("a length " + a.length) ---> perpetually 0
-        for(let i = 0; i < row.length; i++){
+  //Create table object with conditional classNames, so the elements can be given different CSS properties, which eventually form the hitomezashi - or any other grid-style - pattern
+  let classNamedTable = table.map( item => {
 
-            row.forEach(item => {
-                console.log(item)
-                if (item === "0,8") {
-                    return <tr className={`nollakasi`}>nollakasi</tr>
-                } else {
-                    return <tr className={`${item}`}>{item}</tr>
-                }
+    let elementArrayToReturn = [];
+    //Iterate through each of the <td>{cell}</td> elements in the table object and conditionally return a replacement with correct className value
+    item.props.children.forEach(element => {
 
-            })
+      //Check if the innerHTML value is "even" or "odd" and return a table cell with the right className accordingly
+      let floatValue = +(element.props.children.replace(/,/,'.'))
+      if((floatValue * 10) % 2 === 0) {
+        elementArrayToReturn.push(<td className="even">{element.props.children}</td>)
+      } else {
+        elementArrayToReturn.push(<td className="odd">{element.props.children}</td>)
+      }
 
-        }
+    })
 
-
-        }}</tr>*/
-    )
-
-    console.log(items)
+    //Return the array populated with new <td> elements
     return (
-        <table>{items}</table>
+      <tr className = "tableRow">
+        {elementArrayToReturn}
+      </tr>
     )
+  })
+
+  return (
+      <table className = "table">{classNamedTable}</table>
+  )
 
 }
-
-//items[0].props.children[0] = "0,0"
-
-/*const PickUpList = (props) => {
-  //Iterate through props.data and create JSX objects of the items which are then returned inside of a table.
-  let items = props.data.map((item) => 
-    <tr className="pickupListTr" key={item.id}>
-      <td className="pickupListTd" key={item.id}>{'https://youtu.be/'}<span className="pickupListSpan">{item.videoId}{'?t='}{item.time}</span></td>
-      <td align="right"><button className="noselect btn btn-outline-light text-dark pickupListDelButton" onClick={() => {props.deletePickupListItem(item.id)}}>X</button></td>
-    </tr>)
-  return (
-    <div className="pickupListBackgroundDiv">
-      <table className="pickupListTable">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="tableFakePadding"></tr>
-            {items}
-          <tr className="tableFakePadding"></tr>
-        </tbody>
-      </table>
-    </div>
-  )
-}*/
 
 export default Matrix;
