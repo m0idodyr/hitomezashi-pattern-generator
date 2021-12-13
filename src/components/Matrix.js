@@ -30,48 +30,31 @@ const TableGenerator = (props) => {
       }     
   }
 
-  //Create the table object and map through the rows, creating <tr> and <tr> elements with the cell values
+  //Create the table object and map through the rows, creating <tr> and <td> elements with the cell values
   let table = tbl.map((array) => { 
-    //"For each array in the tbl -array..."
-    let celledRow = array.map((cell) => {
-      //...iterate through each cell in an array, in the tbl -array, and return the cells as <td> elements with cell value
-      let b = <td>{cell}</td>
-      return b
+    //"For each array in the tbl -array, iterate through each of the <td>{cell}</td> elements in the table object and conditionally return a replacement with correct className value."
+    let elementArrayToReturn = [];
+    array.forEach(element => {
+      //Check if the innerHTML value is "even" or "odd" and return a table cell with the className accordingly
+      let floatValue = +(element.replace(/,/,'.'))
+      if((floatValue * 10) % 2 === 0) {
+        elementArrayToReturn.push(<td className="even">{element}</td>)
+      } else {
+        elementArrayToReturn.push(<td className="odd">{element}</td>)
+      }
     })
     
     //Return a JSX array back to the 2-dimensional "table" -array, as a replacement of the original arrays with simple cell values.
-    let a =  <tr>{celledRow}</tr>
-    return a
-
-  })
-
-  //Create table object with conditional classNames, so the elements can be given different CSS properties, which eventually form the hitomezashi - or any other grid-style - pattern
-  let classNamedTable = table.map( item => {
-
-    let elementArrayToReturn = [];
-    //Iterate through each of the <td>{cell}</td> elements in the table object and conditionally return a replacement with correct className value
-    item.props.children.forEach(element => {
-
-      //Check if the innerHTML value is "even" or "odd" and return a table cell with the right className accordingly
-      let floatValue = +(element.props.children.replace(/,/,'.'))
-      if((floatValue * 10) % 2 === 0) {
-        elementArrayToReturn.push(<td className="even">{element.props.children}</td>)
-      } else {
-        elementArrayToReturn.push(<td className="odd">{element.props.children}</td>)
-      }
-
-    })
-
-    //Return the array populated with new <td> elements
     return (
       <tr className = "tableRow">
         {elementArrayToReturn}
       </tr>
     )
+
   })
 
   return (
-      <table className = "table">{classNamedTable}</table>
+      <table className = "table">{table}</table>
   )
 
 }
