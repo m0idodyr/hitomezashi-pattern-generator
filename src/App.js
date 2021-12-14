@@ -4,7 +4,7 @@ import Matrix from './components/Matrix';
 function App() {
   return (
     <div className="App">
-      <Matrix />
+      <Matrix stringInput={"nakkipitsa"}/>
     </div>
   );
 }
