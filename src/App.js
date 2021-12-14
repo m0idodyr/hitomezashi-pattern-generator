@@ -1,10 +1,11 @@
 import './App.css'
-import Matrix from './components/Matrix';
+import Canvas from './components/Canvas';
 
 function App() {
+
   return (
     <div className="App">
-      <Matrix stringInput={"nakkipitsa"}/>
+      <Canvas />
     </div>
   );
 }

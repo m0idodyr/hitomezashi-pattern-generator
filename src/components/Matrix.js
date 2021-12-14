@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 
 class Matrix extends Component {
 
@@ -6,11 +6,13 @@ class Matrix extends Component {
       super(props)
       this.inputStringToCharArrayParser = this.inputStringToCharArrayParser.bind(this)
       this.characterArrayToBooleanParser = this.characterArrayToBooleanParser.bind(this)
-      this.booleanArray = this.booleanArray.bind(this)
       this.state = {
-        stringInput: props.stringInput,
-        hitomezashiTable: [],
+        stringInput: "hitomezashi",
       }
+  }
+
+  componentDidMount () {
+
   }
 
   inputStringToCharArrayParser (stringInput) {
@@ -69,11 +71,12 @@ class Matrix extends Component {
     return table
   }
 
-  booleanArray(){
-    console.log(this.characterArrayToBooleanParser(this.inputStringToCharArrayParser(this.state.stringInput)))
+  onSubmit(e) {
+    this.setState({
+      stringInput: e.target.value
+    })
+    console.log(this.state.stringInput)
   }
-
-
 
   render () {
     let charArray = this.inputStringToCharArrayParser(this.state.stringInput)
@@ -82,11 +85,11 @@ class Matrix extends Component {
     let table = this.mappingTwoDimensionalArray(twoDimensionalArray, booleanArray)
     return (
       <div>
+        <input value={this.state.stringInput} onChange={e => this.onSubmit(e)} />
         <table className = "table">{table}</table>
       </div>
     )
   }
-
 }
 
 export default Matrix;
