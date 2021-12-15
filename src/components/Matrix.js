@@ -64,13 +64,12 @@ class Matrix extends Component {
       array.forEach(element => {
         //Check if the innerHTML value is "even" or "odd" and return a table cell with the className accordingly
         if(booleanArray[rowIterator] === true && cellIterator % 2 === 1) {
-          elementArrayToReturn.push(<td className="borderBottom">{`${booleanArray[rowIterator]}, ${numberInputArrayToIterate[cellIterator]}`}</td>)
+          elementArrayToReturn.push(<td className="borderBottom">{`${element}`}</td>)
         } else if(booleanArray[rowIterator] === false && cellIterator % 2 === 0) {
-          elementArrayToReturn.push(<td className="borderBottom">{`${booleanArray[rowIterator]}, ${numberInputArrayToIterate[cellIterator]}`}</td>)
+          elementArrayToReturn.push(<td className="borderBottom">{`${element}`}</td>)
         } else {
-          elementArrayToReturn.push(<td className="teal">{`${booleanArray[rowIterator]}, ${numberInputArrayToIterate[cellIterator]}`}</td>)
+          elementArrayToReturn.push(<td className="noBorder">{`${element}`}</td>)
         }
-        console.log(cellIterator)
         cellIterator++
       })
       rowIterator++
@@ -97,6 +96,17 @@ class Matrix extends Component {
     //whether the first value is odd or even. Effectively we open the table arrays and re-map them accordingly to a new table.
     //See if you can look into the classNames of the <td>'s. If there's already a bottomBorder class and you should be injecting
     //the rightBorder class, return a version which has both, else just return the rightBorder.
+    let elementArrayToReturn = [];
+
+    for (let i = 0; i < this.state.stringInput.length; i++) {
+      //console.log(table[0].props.children[i].props.children)
+      console.log("RIVI ALKAA")
+      if (true) { //table[0].props.children[i].props.children % 2 === 1
+        for (let j = 0; j < this.state.numberInput.length; j++) {
+          console.log(table[i].props.children[j].props.children) //Logs columns from top to down.
+        }
+      }
+    }
 
     return rdyTable
   }
