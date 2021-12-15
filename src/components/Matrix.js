@@ -103,7 +103,10 @@ class Matrix extends Component {
       console.log("RIVI ALKAA")
       if (true) { //table[0].props.children[i].props.children % 2 === 1
         for (let j = 0; j < this.state.numberInput.length; j++) {
-          console.log(table[i].props.children[j].props.children) //Logs columns from top to down.
+          //console.log(table[i].props.children[j].props.children) //Logs rows
+          for (let k = 0; k < this.state.stringInput.length; k++) {
+            console.log(table[k].props.children[j].props.children) //Logs columns from top to down.
+          }
         }
       }
     }
