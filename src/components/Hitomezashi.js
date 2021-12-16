@@ -127,8 +127,10 @@ class Hitomezashi extends Component {
     let table = this.mappingTwoDimensionalArray(twoDimensionalArray, booleanArray);
     return (
       <div>
-        <input id="stringInputField" value={this.state.stringInput} onChange={e => this.changeStringInput(e)} />
-        <input id="numberInputField" value={this.state.numberInput} onChange={e => this.changeNumberInput(e)} />
+        <div className="inputWrapper">
+          <input id="stringInputField" value={this.state.stringInput} onChange={e => this.changeStringInput(e)} />
+          <input id="numberInputField" value={this.state.numberInput} onChange={e => this.changeNumberInput(e)} />
+        </div>
         <table className = "table">{table}</table>
       </div>
     )

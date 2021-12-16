@@ -1,6 +1,12 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 .App {
   text-align: right;
-  background: cyan;
+  height: 100%;
+  width: 100%;
 }
 
 .borderBottomBorderRight{
@@ -34,7 +40,12 @@
 
 .table {
   border-spacing: 0;
-  border-top-style: solid;
+}
+
+.inputWrapper {
+  background: cyan;
+  border-bottom-style: solid;
+  border-right-style: solid;
 }
 
 #stringInputField {
@@ -47,4 +58,5 @@
   padding-left: 5px;
   padding-right: 5px;
   margin-right: 10px;
+
 }
