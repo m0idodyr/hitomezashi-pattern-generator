@@ -1,32 +1,50 @@
 .App {
-  text-align: center;
+  text-align: right;
+  background: cyan;
 }
 
 .borderBottomBorderRight{
-  min-width: 50px;
-  min-height: 50px;
-  border-bottom-style: solid;
+  display: inline-block;
+  background: #34ebb4;
+  min-width: 30px;
+  min-height: 30px;
+  border-bottom-style:solid;
   border-right-style: solid;
 }
 
 .borderRight {
-  min-width: 50px;
-  min-height: 50px;
+  background: #34ebb4;
+  min-width: 30px;
+  min-height: 30px;
   border-right-style: solid;
 }
 
 .borderBottom {
-  min-width: 50px;
-  min-height: 50px;
+  background: #34ebb4;
+  min-width: 30px;
+  min-height: 30px;
   border-bottom-style: solid;
 }
 
 .noBorder {
-  height: 50px;
-  width: 50px;
-  border: none;
+  background: #1df2b2;
+  height: 30px;
+  width: 30px;
 }
 
 .table {
   border-spacing: 0;
+  border-top-style: solid;
+}
+
+#stringInputField {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+}
+
+#numberInputField {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 10px;
 }

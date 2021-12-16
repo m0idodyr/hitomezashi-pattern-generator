@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Matrix from './Matrix';
+import Hitomezashi from './Hitomezashi';
 
 class Canvas extends Component {
 
@@ -10,16 +10,11 @@ class Canvas extends Component {
       }
   }
 
-  componentDidMount () {
-    console.log("Canvas compontentDidMount")
-  }
-
-
   render () {
     return (
-        <div className="Canvas">
-            <Matrix />
-        </div>
+      <div className="Canvas">
+          <Hitomezashi />
+      </div>
         
     )
   }
