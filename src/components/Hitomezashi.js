@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 class Hitomezashi extends Component {
 
   constructor(props) {
-      super(props)
-      this.inputStringToCharArrayParser = this.inputStringToCharArrayParser.bind(this);
-      this.characterArrayToBooleanParser = this.characterArrayToBooleanParser.bind(this);
-      this.inputStringToNumberArrayParser = this.inputStringToNumberArrayParser.bind(this);
-      this.mappingVerticalsToMappedArray = this.mappingVerticalsToMappedArray.bind(this);
-      this.state = {
-        stringInput: "hitomezashipatterngenerator",
-        numberInput: "31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679",
-      }
+    super(props)
+    this.inputStringToCharArrayParser = this.inputStringToCharArrayParser.bind(this);
+    this.characterArrayToBooleanParser = this.characterArrayToBooleanParser.bind(this);
+    this.inputStringToNumberArrayParser = this.inputStringToNumberArrayParser.bind(this);
+    this.mappingVerticalsToMappedArray = this.mappingVerticalsToMappedArray.bind(this);
+    this.state = {
+      stringInput: "hitomezashipatterngenerator",
+      numberInput: "31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679",
+    }
   }
 
   //Return an array of integers.
@@ -83,7 +83,6 @@ class Hitomezashi extends Component {
           {elementArrayToReturn}
         </tr>
       )
-  
     })
     return this.mappingVerticalsToMappedArray(table);
   }
@@ -95,26 +94,25 @@ class Hitomezashi extends Component {
    * Otherwise return the original cell.
    */
   mappingVerticalsToMappedArray (table) {
- 
     let boolean = true;
     let finalArray = table.map((array => {
       let elementArrayToReturn = [];
       for (let i = 0; i < array.props.children.length; i++) {
-          if (this.state.numberInput[i] % 2 === 0 && boolean === true) {
-            if(array.props.children[i].props.className === "borderBottom") {
-              elementArrayToReturn.push(<td className="borderBottomBorderRight"></td>);
-            } else {
-              elementArrayToReturn.push(<td className="borderRight"></td>);
-            }
-          } else if (this.state.numberInput[i] % 2 === 1 && boolean === false) {
-            if(array.props.children[i].props.className === "borderBottom") {
-              elementArrayToReturn.push(<td className="borderBottomBorderRight"></td>);
-            } else {
-              elementArrayToReturn.push(<td className="borderRight"></td>);
-            }
+        if (this.state.numberInput[i] % 2 === 0 && boolean === true) {
+          if(array.props.children[i].props.className === "borderBottom") {
+            elementArrayToReturn.push(<td className="borderBottomBorderRight"></td>);
           } else {
-            elementArrayToReturn.push(array.props.children[i]);
+            elementArrayToReturn.push(<td className="borderRight"></td>);
           }
+        } else if (this.state.numberInput[i] % 2 === 1 && boolean === false) {
+          if(array.props.children[i].props.className === "borderBottom") {
+            elementArrayToReturn.push(<td className="borderBottomBorderRight"></td>);
+          } else {
+            elementArrayToReturn.push(<td className="borderRight"></td>);
+          }
+        } else {
+          elementArrayToReturn.push(array.props.children[i]);
+        }
       }
       boolean = !boolean;
       return (
@@ -123,7 +121,6 @@ class Hitomezashi extends Component {
         </tr>
       )
     }))
-
     return finalArray;
   }
 
