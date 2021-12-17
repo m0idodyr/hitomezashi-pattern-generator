@@ -54,9 +54,9 @@ class Hitomezashi extends Component {
   }
 
   /**
-   * If character (y-axis) in the iteration is a vowel, and the row cell is odd, return a <td> with borderBottom CSS -class.
-   * If character (y-axis) in the iteration is a consonant, and the row cell is even, return a <td> with borderBottom CSS -class.
-   * Returns a table with horizontal stitching pattern like this:
+   * If character (y-axis) in the iteration is a vowel, and the row cell is odd, array.push() a <td> with borderBottom CSS -class.
+   * If character (y-axis) in the iteration is a consonant, and the row cell is even, array.push() a <td> with borderBottom CSS -class.
+   * Returns an array with <tr> (table row) elements filled with <td> (cell) elements like this:
    * - - - - - - - - - -
    *  - - - - - - - - -
    * - - - - - - - - - -
@@ -88,10 +88,10 @@ class Hitomezashi extends Component {
   }
 
   /**
-   * Returns <td> elements with vertical borders, according to the CSS classes of the cells in the table.
-   * If number (x-axis) is even and column cell is odd (boolean === true), check if the cell has borderBottom and return <td> with either horizontal AND vertical border or only vertical border.
-   * If number (x-axis) is odd and column cell is even (boolean === false), check if the cell has borderBottom and return <td> with either horizontal AND vertical border or only vertical border.
-   * Otherwise return the original cell.
+   * If number (x-axis) is even and column cell is odd (boolean === true), check if the cell has a class of borderBottom and push <td> with either horizontal AND vertical border or only vertical border.
+   * If number (x-axis) is odd and column cell is even (boolean === false), check if the cell has a class of borderBottom and push <td> with either horizontal AND vertical border or only vertical border.
+   * Otherwise push the original cell.
+   * Returns an array with <tr> (table row) elements filled with <td> (cell) elements, now with both horizontal and vertical borders accordingly.
    */
   mappingVerticalsToMappedArray (table) {
     let boolean = true;
