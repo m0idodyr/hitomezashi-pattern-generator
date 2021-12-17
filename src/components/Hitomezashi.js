@@ -14,19 +14,19 @@ class Hitomezashi extends Component {
       }
   }
 
-  //Return an array of integers
+  //Return an array of integers.
   inputStringToNumberArrayParser (numberInput) {
     let numberArray = numberInput.split('');
     return numberArray;
   }
 
-  //Return an array of characters
+  //Return an array of characters.
   inputStringToCharArrayParser (stringInput) {
     let charArray = stringInput.split('');
     return charArray;
   }
 
-  //Return an array filled with booleans according to whether the character is a vowel or a consonant
+  //Return an array filled with booleans according to whether the character is a vowel or a consonant.
   characterArrayToBooleanParser (charArray) {
     let regexForVowels = /^[aeiouyäöå]$/i;
     let booleanArray = [];
@@ -41,7 +41,7 @@ class Hitomezashi extends Component {
     return booleanArray;
   }
 
-  //Return 2D-array (Populating cells with iteration values, but they are not necessary for the functionality)
+  //Return 2D-array (Populating cells with iteration values, but they are not necessary for the functionality).
   twoDimensionalArrayGenerator (row, col) {
     let twoDimensionalArray = [];
     for (let i = 0; i < row; i++){
@@ -55,7 +55,7 @@ class Hitomezashi extends Component {
 
   /**
    * If character (y-axis) in the iteration is a vowel, and the row cell is odd, return a <td> with borderBottom CSS -class.
-   * If character (y-axis) in the iteration is a consonant, and the row cell is even, return a <td> with borderBottom CSS -class
+   * If character (y-axis) in the iteration is a consonant, and the row cell is even, return a <td> with borderBottom CSS -class.
    * Returns a table with horizontal stitching pattern like this:
    * - - - - - - - - - -
    *  - - - - - - - - -
@@ -89,8 +89,8 @@ class Hitomezashi extends Component {
   }
 
   /**
-   * Returns <td> elements with vertical borders, according to the CSS classes of the table cells in parameters
-   * If number (x-axis) is even and column cell is is odd (boolean === true), check if the cell has borderBottom and return <td> with either horizontal AND vertical border or only vertical border.
+   * Returns <td> elements with vertical borders, according to the CSS classes of the cells in the table.
+   * If number (x-axis) is even and column cell is odd (boolean === true), check if the cell has borderBottom and return <td> with either horizontal AND vertical border or only vertical border.
    * If number (x-axis) is odd and column cell is even (boolean === false), check if the cell has borderBottom and return <td> with either horizontal AND vertical border or only vertical border.
    * Otherwise return the original cell.
    */
@@ -127,14 +127,14 @@ class Hitomezashi extends Component {
     return finalArray;
   }
 
-  //Read input to state
+  //Read input to state.
   changeStringInput(e) {
     this.setState({
       stringInput: e.target.value
     })
   }
-  
-  //Read input to state
+
+  //Read input to state.
   changeNumberInput(e) {
     this.setState({
       numberInput: e.target.value
