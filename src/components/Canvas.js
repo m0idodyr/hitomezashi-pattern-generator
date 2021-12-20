@@ -12,7 +12,7 @@ class Canvas extends Component {
 
   render () {
     return (
-      <div className="Canvas">
+      <div className="canvasWrapper">
           <Hitomezashi />
       </div>
         

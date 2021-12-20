@@ -9,6 +9,17 @@
   width: 100%;
 }
 
+.canvasWrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.hitomezashiWrapper {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 .borderBottomBorderRight{
   background: #34ebb4;
   min-width: 30px;
@@ -43,6 +54,7 @@
 }
 
 .inputWrapper {
+  width: 100%;
   text-align: left;
   background: cyan;
   border-bottom-style: solid;

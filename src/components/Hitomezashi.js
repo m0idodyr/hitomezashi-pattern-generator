@@ -80,7 +80,7 @@ class Hitomezashi extends Component {
       }
       rowIterator++;
       return (
-        <tr key={key} className = "tableRow">
+        <tr key={key} className ="tableRow">
           {elementArrayToReturn}
         </tr>
       )
@@ -117,7 +117,7 @@ class Hitomezashi extends Component {
       }
       boolean = !boolean;
       return (
-        <tr key={key} className = "tableRow">
+        <tr key={key} className ="tableRow">
           {elementArrayToReturn}
         </tr>
       )
@@ -146,12 +146,12 @@ class Hitomezashi extends Component {
       let twoDimensionalArray = this.twoDimensionalArrayGenerator(this.state.stringInput.length, this.state.numberInput.length);
       let table = this.mappingTwoDimensionalArray(twoDimensionalArray, booleanArray);
       return (
-        <div>
+        <div className="hitomezashiWrapper">
           <div className="inputWrapper">
             <input id="stringInputField" value={this.state.stringInput} onChange={e => this.changeStringInput(e)} />
             <input id="numberInputField" value={this.state.numberInput} onChange={e => this.changeNumberInput(e)} />
           </div>
-          <table className = "table">
+          <table className ="table">
             <tbody>
               {table}
             </tbody>
