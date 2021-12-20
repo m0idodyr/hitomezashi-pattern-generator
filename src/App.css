@@ -43,6 +43,7 @@
 }
 
 .inputWrapper {
+  text-align: left;
   background: cyan;
   border-bottom-style: solid;
   border-right-style: solid;

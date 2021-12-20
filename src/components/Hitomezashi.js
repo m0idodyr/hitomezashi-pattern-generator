@@ -11,7 +11,7 @@ class Hitomezashi extends Component {
 
     this.state = {
       stringInput: "hitomezashipatterngenerator",
-      numberInput: "31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679",
+      numberInput: "314159265358979323846264338327950288419716939937510582097494459230",
     }
   }
 
@@ -162,8 +162,8 @@ class Hitomezashi extends Component {
       return (
         <div>
           <div className="inputWrapper">
-            <input id="stringInputField" value={this.state.stringInput} onChange={e => this.changeStringInput(e)} />
-            <input id="numberInputField" value={this.state.numberInput} onChange={e => this.changeNumberInput(e)} />
+            <input id="stringInputField" placeholder="String" value={this.state.stringInput} onChange={e => this.changeStringInput(e)} />
+            <input id="numberInputField" placeholder="Integer" value={this.state.numberInput} onChange={e => this.changeNumberInput(e)} />
           </div>
         <div className="typeInAtLeastMessage">Type in at least two letters and digits in order to begin</div>
       </div>
