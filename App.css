@@ -1,0 +1,78 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.App {
+  text-align: right;
+  height: 100%;
+  width: 100%;
+}
+
+.canvasWrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.hitomezashiWrapper {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.borderBottomBorderRight{
+  background: #34ebb4;
+  min-width: 30px;
+  min-height: 30px;
+  border-bottom-style:solid;
+  border-right-style: solid;
+}
+
+.borderRight {
+  display: block;
+  background: #34ebb4;
+  min-width: 30px;
+  min-height: 30px;
+  border-right-style: solid;
+}
+
+.borderBottom {
+  background: #34ebb4;
+  min-width: 30px;
+  min-height: 30px;
+  border-bottom-style: solid;
+}
+
+.noBorder {
+  background: #1df2b2;
+  height: 30px;
+  width: 30px;
+}
+
+.table {
+  border-spacing: 0;
+}
+
+.inputWrapper {
+  width: 100%;
+  text-align: left;
+  background: cyan;
+  border-bottom-style: solid;
+  border-right-style: solid;
+}
+
+#stringInputField {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+}
+
+#numberInputField {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 10px;
+}
+
+.typeInAtLeastMessage {
+  text-align: left;
+}
